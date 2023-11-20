@@ -7,11 +7,11 @@
 
     <!-- Load the required dependencies: A-frame and AR.js -->
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://wow.techbrood.com/uploads/1910/aframe-ar.js"></script>
 
     <!-- This is to load the A-frame extras, that contain the required components that are used to show the animations -->
     <!-- of the 3D model of the robot -->
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>   
+    <script src="https://rebey.oschina.io/aframe/js/aframe-extras.loaders.min.js"></script>   
 
     <!-- This is a hack because at the time of writing there are some distortions in the provided visuals until the  -->
     <!-- system receives a resize event. The resize event must be triggered when everything has been loaded and the  -->
@@ -43,7 +43,7 @@
 
          <!-- Defines the marker that we are going to use. Notice that we are not providing the image file, but the  -->
          <!-- "compiled" .patt file that we got from the online tool. the marker MUST BE ACCESSIBLE VIA HTTPS -->
-         <a-marker preset='custom' type='pattern' url='https://skarredghost.com/AR/pattern-Skarredghost_marker_qr.patt'>
+         <a-marker preset='custom' type='pattern' url='jgw.patt'>
 
             <!-- Here we define the content to show on the marker when it gets detected: the GLTF model of the robot that we specified above. -->
             <!-- Notice the mention to the name robot that we specified above. -->
