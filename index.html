@@ -40,8 +40,8 @@
 		const cube = new THREE.Mesh( geometry, material );
         console.log(points)
         // cube.position.set(points.x, points.y, points.z)
-		scene.add(cube);
-        console.log(scene)
+		markerRoot.add(cube);
+        console.log(markerRoot)
     })
 
     function screenToWorldVector (evX, evY) {
