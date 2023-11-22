@@ -78,9 +78,6 @@
     arToolkitContext.init(function onCompleted(){
         // copy projection matrix to camera
         camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
-        arToolkitContext.arController.canvas?.addEventListener('touchstart', () => {
-            alert(111)
-        });
     })
     // update artoolkit on every frame
     onRenderFcts.push(function(){
@@ -95,7 +92,7 @@
     //HERE we define the marker... specify here your .patt file
     var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
         type : 'pattern',
-        patternUrl : 'njyj.patt'
+        patternUrl : 'jgw.patt'
     })
     // build a smoothedControls
     var smoothedRoot = new THREE.Group()
