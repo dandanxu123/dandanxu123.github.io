@@ -26,13 +26,26 @@
     renderer.domElement.style.top = '0px'
     renderer.domElement.style.left = '0px'
     document.body.appendChild( renderer.domElement );
-    renderer.domElement.addEventListener('touchstart', () => {
+    renderer.domElement.addEventListener('touchstart', (e) => {
         // console.log(2222)
         const div = document.createElement("div");
         div.style.height = "36px";
         div.innerHTML = '222'
         document.body.appendChild(div);
+        console.log(e, camera)
     })
+
+    function screenToWorldVector (evX, evY) {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const x = evX;
+        const y = evY;
+        const x1 = (x / width) * 2 - 1;
+        const y1 = -(y / height) * 2 + 1;
+        const stdVector = new Vector3(x1, y1, 0.5);
+        const worldVector = stdVector.unproject(camera);
+        return worldVector;
+    };
     // array of functions for the rendering loop
     var onRenderFcts= [];
     // init scene and camera
