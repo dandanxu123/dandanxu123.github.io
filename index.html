@@ -46,7 +46,7 @@
         ray.set(points, new THREE.Vector3(0, 1, 0))
         // ray.setFromCamera( points, camera );
         const r1 = ray.intersectObjects(markerRoot.children, true);
-        console.log(r1)
+        console.log(r1, scene)
     })
 
     function screenToWorldVector (evX, evY) {
@@ -56,7 +56,7 @@
         const y = evY;
         const x1 = (x / width) * 2 - 1;
         const y1 = -(y / height) * 2 + 1;
-        const stdVector = new THREE.Vector3(x1, 0.5, y1);
+        const stdVector = new THREE.Vector3(x1, 0.5, -y1);
         const worldVector = stdVector.unproject(camera);
         return worldVector;
     };
