@@ -26,9 +26,6 @@
     renderer.domElement.style.top = '0px'
     renderer.domElement.style.left = '0px'
     document.body.appendChild( renderer.domElement );
-    arToolkitContext.arController.canvas?.addEventListener('touchstart', () => {
-        alert(111)
-    });
     // array of functions for the rendering loop
     var onRenderFcts= [];
     // init scene and camera
@@ -81,6 +78,9 @@
     arToolkitContext.init(function onCompleted(){
         // copy projection matrix to camera
         camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
+        arToolkitContext.arController.canvas?.addEventListener('touchstart', () => {
+            alert(111)
+        });
     })
     // update artoolkit on every frame
     onRenderFcts.push(function(){
