@@ -55,7 +55,7 @@
         const y = evY;
         const x1 = (x / width) * 2 - 1;
         const y1 = -(y / height) * 2 + 1;
-        const stdVector = new THREE.Vector3(x1, y1, 0);
+        const stdVector = new THREE.Vector3(x1, 1, -y1);
         const worldVector = stdVector.unproject(camera);
         return worldVector;
     };
