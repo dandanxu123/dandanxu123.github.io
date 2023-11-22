@@ -26,7 +26,7 @@
     renderer.domElement.style.top = '0px'
     renderer.domElement.style.left = '0px'
     document.body.appendChild( renderer.domElement );
-    document.addEventListener('touchstart', () => {
+    renderer.domElement.addEventListener('touchstart', () => {
         console.log(2222)
     })
     // array of functions for the rendering loop
