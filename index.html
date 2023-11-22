@@ -28,10 +28,6 @@
     document.body.appendChild( renderer.domElement );
     renderer.domElement.addEventListener('touchstart', (e) => {
         // console.log(2222)
-        // const div = document.createElement("div");
-        // div.style.height = "36px";
-        // div.innerHTML = '222'
-        // document.body.appendChild(div);
 
         const points = screenToWorldVector(e.touches[0].clientX, e.touches[0].clientY)
         console.log(points, 222)
@@ -40,6 +36,14 @@
 		const cube = new THREE.Mesh( geometry, material );
         console.log(points)
         cube.position.set(points.x, 0.5, -points.y)
+
+
+        const div = document.createElement("div");
+        div.style.height = "36px";
+        div.innerHTML = `${points.x}, ${points.y}, ${points.z}`
+        document.body.appendChild(div);
+
+
 		markerRoot.add(cube);
         markerRoot.visible = true;
         let ray = new THREE.Raycaster()
