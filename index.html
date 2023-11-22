@@ -39,7 +39,7 @@
 		const material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
 		const cube = new THREE.Mesh( geometry, material );
         console.log(points)
-        cube.position.set(points.x, points.y, points.z)
+        cube.position.set(points.x, 0.5, -points.y)
 		markerRoot.add(cube);
         markerRoot.visible = true;
         let ray = new THREE.Raycaster()
