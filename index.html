@@ -41,7 +41,11 @@
         console.log(points)
         cube.position.set(points.x, points.y, points.z)
 		markerRoot.add(cube);
-        console.log(markerRoot)
+        markerRoot.visible = true;
+        let ray = new THREE.Raycaster()
+        ray.set(point, new Vector3(0, 1, 0))
+        const r1 = ray.intersectObjects(markerRoot.children, true);
+        console.log(r1)
     })
 
     function screenToWorldVector (evX, evY) {
