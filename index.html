@@ -43,7 +43,7 @@
 		markerRoot.add(cube);
         markerRoot.visible = true;
         let ray = new THREE.Raycaster()
-        ray.set(point, new Vector3(0, 1, 0))
+        ray.set(points, new Vector3(0, 1, 0))
         const r1 = ray.intersectObjects(markerRoot.children, true);
         console.log(r1)
     })
