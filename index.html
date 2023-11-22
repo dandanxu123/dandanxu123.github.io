@@ -156,7 +156,7 @@
     var geometry    = new THREE.TorusKnotGeometry(0.3,0.1,64,16);
     var material    = new THREE.MeshNormalMaterial();
     var mesh    = new THREE.Mesh( geometry, material );
-    mesh.position.y = 0.5
+    mesh.position.set(0, 0, 0)
     arWorldRoot.add( mesh );
     onRenderFcts.push(function(){
         // mesh.rotation.x += 0.1
