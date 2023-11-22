@@ -27,7 +27,11 @@
     renderer.domElement.style.left = '0px'
     document.body.appendChild( renderer.domElement );
     renderer.domElement.addEventListener('touchstart', () => {
-        console.log(2222)
+        // console.log(2222)
+        const div = document.createElement("div");
+        div.style.height = "36px";
+        div.innerHTML = '222'
+        document.body.appendChild( stats.dom );
     })
     // array of functions for the rendering loop
     var onRenderFcts= [];
