@@ -35,7 +35,7 @@
 		const material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
 		const cube = new THREE.Mesh( geometry, material );
         // console.log(points)
-        cube.position.set(points.x, 0.5, -points.y)
+        cube.position.set(points.x, points.y, points.z)
 
 
         const div = document.createElement("div");
