@@ -43,7 +43,7 @@
         // div.style.height = "36px";
         // div.innerHTML = `${points.x}, ${points.y}, ${points.z}, ${window.innerWidth}, ${window.innerHeight}`
         // document.body.appendChild(div);
-        console.log(arToolkitContext.getProjectionMatrix(), camera)
+        console.log(arToolkitContext.getProjectionMatrix(), camera.matrixWorld)
         console.log(arToolkitContext.getProjectionMatrix().elements.clone().invert(), 222)
 
 		markerRoot.add(cube);
