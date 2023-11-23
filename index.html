@@ -8,7 +8,6 @@
     <!-- ar.js -->
     <script src="package/ar.js"></script>
 
-    <script src="package/OrbitControls.js"></script>
     <script>THREEx.ArToolkitContext.baseURL = 'https://cdn.rawgit.com/jeromeetienne/AR.js/master/three.js/examples/'</script>
 </head>
 
@@ -77,9 +76,6 @@
     var camera = new THREE.Camera();
     // const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
     scene.add(camera);
-
-    // 添加控制器
-    // const controls = new OrbitControls(camera, renderer.domElement);
 
     ////////////////////////////////////////////////////////////////////////////////
     //          handle arToolkitSource
