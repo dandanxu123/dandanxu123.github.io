@@ -43,7 +43,7 @@
         // div.style.height = "36px";
         // div.innerHTML = `${points.x}, ${points.y}, ${points.z}, ${window.innerWidth}, ${window.innerHeight}`
         // document.body.appendChild(div);
-
+        console.log(camera)
 
 		markerRoot.add(cube);
         markerRoot.visible = true;
@@ -124,14 +124,14 @@
     onRenderFcts.push(function(){
         if( arToolkitSource.ready === false )   return
         console.log(arToolkitSource.domElement)
-        const div = document.createElement("div");
-        div.style.marginBottom = "16px";
-        div.innerHTML = JSON.stringify(arToolkitContext.getProjectionMatrix())
-        document.body.appendChild(div);
+        // const div = document.createElement("div");
+        // div.style.marginBottom = "16px";
+        // div.innerHTML = JSON.stringify(arToolkitContext.getProjectionMatrix())
+        // document.body.appendChild(div);
 
-        const div2 = document.createElement("div");
-        div2.style.marginBottom = "16px";
-        div2.innerHTML = THREEx.ArToolkitContext.baseURL
+        // const div2 = document.createElement("div");
+        // div2.style.marginBottom = "16px";
+        // div2.innerHTML = THREEx.ArToolkitContext.baseURL
         document.body.appendChild(div2);
         
         arToolkitContext.update( arToolkitSource.domElement )
