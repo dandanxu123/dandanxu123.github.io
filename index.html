@@ -52,10 +52,10 @@
 
       // console.log(camera)
 
-      const div1 = document.createElement("div");
-      div1.style.marginBottom = "20px";
-      div1.innerHTML = JSON.stringify(arToolkitContext.getProjectionMatrix().elements)
-      document.body.appendChild(div1);
+      // const div1 = document.createElement("div");
+      // div1.style.marginBottom = "20px";
+      // div1.innerHTML = JSON.stringify(arToolkitContext.getProjectionMatrix().elements)
+      // document.body.appendChild(div1);
 
       // const div2 = document.createElement("div");
       // div2.style.marginBottom = "20px";
@@ -140,21 +140,15 @@
     // initialize it
     arToolkitContext.init(function onCompleted() {
       // copy projection matrix to camera
+      const div = document.createElement("div");
+      div.style.marginBottom = "16px";
+      div.innerHTML = JSON.stringify(arToolkitContext.getMatrixWorld())
+      document.body.appendChild(div);
       camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
     });
     // update artoolkit on every frame
     onRenderFcts.push(function () {
       if (arToolkitSource.ready === false) return;
-      console.log(arToolkitSource.domElement);
-      // const div = document.createElement("div");
-      // div.style.marginBottom = "16px";
-      // div.innerHTML = JSON.stringify(arToolkitContext.getMatrixWorld())
-      // document.body.appendChild(div);
-
-      // const div2 = document.createElement("div");
-      // div2.style.marginBottom = "16px";
-      // div2.innerHTML = THREEx.ArToolkitContext.baseURL
-      // document.body.appendChild(div2);
 
       arToolkitContext.update(arToolkitSource.domElement);
     });
