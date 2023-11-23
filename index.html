@@ -40,10 +40,10 @@
         cube.position.set(points.x, points.y, 0.5)
 
 
-        const div = document.createElement("div");
-        div.style.height = "36px";
-        div.innerHTML = `${points.x}, ${points.y}, ${points.z}, ${window.innerWidth}, ${window.innerHeight}`
-        document.body.appendChild(div);
+        // const div = document.createElement("div");
+        // div.style.height = "36px";
+        // div.innerHTML = `${points.x}, ${points.y}, ${points.z}, ${window.innerWidth}, ${window.innerHeight}`
+        // document.body.appendChild(div);
 
 
 		markerRoot.add(cube);
@@ -127,6 +127,11 @@
     // update artoolkit on every frame
     onRenderFcts.push(function(){
         if( arToolkitSource.ready === false )   return
+        console.log(arToolkitSource.domElement)
+        const div = document.createElement("div");
+        div.style.height = "36px";
+        div.innerHTML = arToolkitSource.domElement
+        document.body.appendChild(div);
         arToolkitContext.update( arToolkitSource.domElement )
     })
     ////////////////////////////////////////////////////////////////////////////////
