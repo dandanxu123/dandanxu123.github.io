@@ -126,7 +126,7 @@
         console.log(arToolkitSource.domElement)
         const div = document.createElement("div");
         div.style.height = "36px";
-        div.innerHTML = arToolkitSource.domElement
+        div.innerHTML = arToolkitContext.getProjectionMatrix()
         document.body.appendChild(div);
         arToolkitContext.update( arToolkitSource.domElement )
     })
