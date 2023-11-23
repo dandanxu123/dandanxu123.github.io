@@ -44,7 +44,7 @@
         // div.innerHTML = `${points.x}, ${points.y}, ${points.z}, ${window.innerWidth}, ${window.innerHeight}`
         // document.body.appendChild(div);
         console.log(arToolkitContext.getProjectionMatrix(), camera.matrixWorld)
-        console.log(arToolkitContext.getProjectionMatrix().elements.clone().invert(), 222)
+        console.log(arToolkitContext.getProjectionMatrix().invert(), 222)
 
 		markerRoot.add(cube);
         markerRoot.visible = true;
