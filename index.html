@@ -52,7 +52,7 @@
       // div.innerHTML = `${points.x}, ${points.y}, ${points.z}, ${window.innerWidth}, ${window.innerHeight}`;
       // document.body.appendChild(div);
 
-      // console.log(camera)
+      console.log(camera)
 
       // const div1 = document.createElement("div");
       // div1.style.marginBottom = "20px";
@@ -83,10 +83,7 @@
       const x1 = (x / width) * 2 - 1;
       const y1 = -(y / height) * 2 + 1;
       const stdVector = new THREE.Vector3(x1, y1, 0.5);
-      const worldVector = stdVector.unproject({
-        projectionMatrixInverse: arToolkitContext.getProjectionMatrix(),
-        matrixWorld: camera.matrixWorld,
-      });
+      const worldVector = stdVector.unproject(camera);
       return worldVector;
     }
     // array of functions for the rendering loop
