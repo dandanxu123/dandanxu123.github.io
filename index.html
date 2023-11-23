@@ -111,9 +111,9 @@
     var arToolkitContext = new THREEx.ArToolkitContext({
         cameraParametersUrl: 'camera_para.dat',
         detectionMode: 'mono',
-        maxDetectionRate: 30,
-        canvasWidth: 80*3,
-        canvasHeight: 60*3,
+        // maxDetectionRate: 30,
+        // canvasWidth: 80*3,
+        // canvasHeight: 60*3,
     })
     // initialize it
     arToolkitContext.init(function onCompleted(){
@@ -128,6 +128,12 @@
         div.style.height = "36px";
         div.innerHTML = arToolkitContext.getProjectionMatrix()
         document.body.appendChild(div);
+
+        const div2 = document.createElement("div");
+        div2.style.height = "36px";
+        div2.innerHTML = arToolkitContext.getProjectionMatrix()
+        document.body.appendChild(div2);
+        
         arToolkitContext.update( arToolkitSource.domElement )
     })
     ////////////////////////////////////////////////////////////////////////////////
