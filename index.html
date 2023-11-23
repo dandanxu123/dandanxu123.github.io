@@ -54,7 +54,7 @@
 
       const div1 = document.createElement("div");
       div1.style.marginBottom = "20px";
-      div1.innerHTML = JSON.stringify(camera.matrixWorld.elements)
+      div1.innerHTML = JSON.stringify(arToolkitContext.getProjectionMatrix().elements)
       document.body.appendChild(div1);
 
       // const div2 = document.createElement("div");
