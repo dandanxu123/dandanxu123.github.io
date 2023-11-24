@@ -44,19 +44,19 @@
       const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
       const cube = new THREE.Mesh(geometry, material);
       // console.log(points)
-      cube.position.set(0, 0, 1);
+      cube.position.set(1, 0, 0);
 
       const geometry2 = new THREE.BoxGeometry(0.1, 0.1, 0.1);
       const material2 = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
       const cube2 = new THREE.Mesh(geometry2, material2);
       // console.log(points)
-      cube2.position.set(1, 0, 0);
+      cube2.position.set(0, 1, 0);
 
       const geometry3 = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-      const material3 = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+      const material3 = new THREE.MeshBasicMaterial({ color: 0x0000ff });
       const cube3 = new THREE.Mesh(geometry3, material3);
       // console.log(points)
-      cube3.position.set(1, 0, 0);
+      cube3.position.set(0, 0, 1);
 
       // const div = document.createElement("div");
       // div.style.marginBottom = "20px";
