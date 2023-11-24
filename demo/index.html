@@ -116,6 +116,10 @@
     mesh.position.y = 0.5;
     scene.add(mesh);
 
+    // 辅助线
+    const axesHelper = new THREE.AxesHelper(2);
+    scene.add(axesHelper);
+
     onRenderFcts.push(function (delta) {
       mesh.rotation.x += Math.PI * delta;
     });
