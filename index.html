@@ -79,7 +79,7 @@
       markerRoot.visible = true;
       let ray = new THREE.Raycaster();
       ray.set(points, new THREE.Vector3(0, 1, 0));
-      const r1 = ray.intersectObjects(scene.children, true);
+      const r1 = ray.intersectObjects(markerRoot.children, true);
       const div = document.createElement("div");
       div.style.marginBottom = "20px";
       div.innerHTML = `${r1.length}.....`;
