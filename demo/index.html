@@ -113,6 +113,7 @@
     scene.add(mesh);
 
     onRenderFcts.push(function (delta) {
+      console.log(mesh)
       mesh.rotation.x += Math.PI * delta;
     });
 
