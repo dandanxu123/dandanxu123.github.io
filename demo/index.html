@@ -27,7 +27,7 @@
     renderer.domElement.addEventListener("touchstart", (e) => {
       const div = document.createElement("div");
       div.style.marginBottom = "16px";
-      div.innerHTML = JSON.stringify(camera.scale)
+      div.innerHTML = JSON.stringify(markerControls.context.arController.camera_mat)
       document.body.appendChild(div);
       console.log(camera.scale)
     });
@@ -113,7 +113,6 @@
     scene.add(mesh);
 
     onRenderFcts.push(function (delta) {
-      console.log(mesh, markerControls)
       mesh.rotation.x += Math.PI * delta;
     });
 
