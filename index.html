@@ -51,12 +51,13 @@
       // div.innerHTML = `${points.x}, ${points.y}, ${points.z}, ${window.innerWidth}, ${window.innerHeight}`;
       // document.body.appendChild(div);
 
-      console.log(camera)
+      // console.log(camera)
+      console.log(arToolkitContext.arController.getCameraMatrix(), 222)
 
-      // const div1 = document.createElement("div");
-      // div1.style.marginBottom = "20px";
-      // div1.innerHTML = JSON.stringify(arToolkitContext.getProjectionMatrix().elements)
-      // document.body.appendChild(div1);
+      const div1 = document.createElement("div");
+      div1.style.marginBottom = "20px";
+      div1.innerHTML = JSON.stringify(arToolkitContext.arController.getCameraMatrix().elements)
+      document.body.appendChild(div1);
 
       // const div2 = document.createElement("div");
       // div2.style.marginBottom = "20px";
