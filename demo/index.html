@@ -27,9 +27,9 @@
     renderer.domElement.addEventListener("touchstart", (e) => {
       const div = document.createElement("div");
       div.style.marginBottom = "16px";
-      div.innerHTML = JSON.stringify(camera)
+      div.innerHTML = JSON.stringify(camera.scale)
       document.body.appendChild(div);
-      console.log(camera)
+      console.log(camera.scale)
     });
 
     // array of functions for the rendering loop
@@ -89,7 +89,7 @@
     // init controls for camera
     var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
       type: "pattern",
-      patternUrl: THREEx.ArToolkitContext.baseURL + "njyj.patt",
+      patternUrl: THREEx.ArToolkitContext.baseURL + "jgw.patt",
       changeMatrixMode: "cameraTransformMatrix",
     });
     // as we do changeMatrixMode: 'cameraTransformMatrix', start with invisible scene
