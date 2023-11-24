@@ -19,11 +19,17 @@
       alpha: true,
     });
     renderer.setClearColor(new THREE.Color("lightgrey"), 0);
-    renderer.setSize(640, 480);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.domElement.style.position = "absolute";
     renderer.domElement.style.top = "0px";
     renderer.domElement.style.left = "0px";
     document.body.appendChild(renderer.domElement);
+    renderer.domElement.addEventListener("touchstart", (e) => {
+      const div = document.createElement("div");
+      div.style.marginBottom = "16px";
+      div.innerHTML = JSON.stringify(camera)
+      document.body.appendChild(div);
+    });
 
     // array of functions for the rendering loop
     var onRenderFcts = [];
@@ -60,8 +66,7 @@
 
     // create atToolkitContext
     var arToolkitContext = new THREEx.ArToolkitContext({
-      cameraParametersUrl:
-        THREEx.ArToolkitContext.baseURL + "camera_para.dat",
+      cameraParametersUrl: THREEx.ArToolkitContext.baseURL + "camera_para.dat",
       detectionMode: "mono",
     });
     // initialize it
@@ -112,11 +117,6 @@
 
     // render the scene
     onRenderFcts.push(function () {
-      const div = document.createElement("div");
-      div.style.marginBottom = "16px";
-      div.innerHTML = JSON.stringify(camera)
-      document.body.appendChild(div);
-
       renderer.render(scene, camera);
     });
 
