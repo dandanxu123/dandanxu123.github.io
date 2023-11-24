@@ -80,7 +80,10 @@
       let ray = new THREE.Raycaster();
       ray.set(points, new THREE.Vector3(0, 1, 0));
       const r1 = ray.intersectObjects(scene.children, true);
-      console.log(r1);
+      const div = document.createElement("div");
+      div.style.marginBottom = "20px";
+      div.innerHTML = `${r1.length}`;
+      document.body.appendChild(div);
     });
 
     function screenToWorldVector(evX, evY) {
