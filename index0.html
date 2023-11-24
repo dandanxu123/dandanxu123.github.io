@@ -28,13 +28,26 @@
 
       // var sceneEl = document.querySelector('a-scene');
       // console.log(sceneEl)
-      var entityEl = document.querySelector('a-entity');
-      console.log(entityEl)
+      var entityEl = document.querySelector("a-entity");
+      console.log(entityEl);
 
       var worldPosition = new THREE.Vector3();
       entityEl.object3D.getWorldPosition(worldPosition);
 
-      console.log(worldPosition)
+      console.log(worldPosition);
+
+      document.addEventListener(
+        "touchstart",
+        () => {
+          var worldPosition = new THREE.Vector3();
+          entityEl.object3D.getWorldPosition(worldPosition);
+          const div = document.createElement("div");
+          div.style.marginBottom = "20px";
+          div.innerHTML = JSON.stringify(worldPosition.elements);
+          document.body.appendChild(div);
+        },
+        false
+      );
     };
   </script>
 </head>
