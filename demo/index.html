@@ -110,10 +110,10 @@
     var material = new THREE.MeshNormalMaterial();
     var mesh = new THREE.Mesh(geometry, material);
     mesh.position.y = 0.5;
-    scene.add(mesh, markerControls);
+    scene.add(mesh);
 
     onRenderFcts.push(function (delta) {
-      console.log(mesh)
+      console.log(mesh, markerControls)
       mesh.rotation.x += Math.PI * delta;
     });
 
