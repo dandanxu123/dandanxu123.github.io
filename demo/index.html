@@ -12,21 +12,6 @@
 </script>
 
 <body style="margin: 0px; overflow: hidden; font-family: Monospace">
-  <div
-    style="
-      position: absolute;
-      top: 10px;
-      width: 100%;
-      text-align: center;
-      z-index: 1;
-    "
-  >
-    <!-- <a href="https://github.com/AR-js-org/AR.js/" target="_blank">AR.js</a> -
-    three.js camera transform
-    <br />
-    Contact me any time at
-    <a href="https://twitter.com/nicolocarp" target="_blank">@nicolocarp</a> -->
-  </div>
   <script>
     // init renderer
     var renderer = new THREE.WebGLRenderer({
@@ -127,6 +112,11 @@
 
     // render the scene
     onRenderFcts.push(function () {
+      const div = document.createElement("div");
+      div.style.marginBottom = "16px";
+      div.innerHTML = JSON.stringify(camera)
+      document.body.appendChild(div);
+
       renderer.render(scene, camera);
     });
 
