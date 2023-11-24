@@ -25,15 +25,15 @@
     renderer.domElement.style.left = "0px";
     document.body.appendChild(renderer.domElement);
     renderer.domElement.addEventListener("touchstart", (e) => {
-      const matrix = new THREE.Matrix4().makeRotationFromQuaternion(
-        new THREE.Quaternion().setFromUnitVectors(
-          new THREE.Vector3(0, 0, 1), // 初始向量
-          new THREE.Vector3(0, 1, 0)
-        )
-      );
-      console.log(matrix)
-      const p = new THREE.Vector3( e.touches[0].clientX, e.touches[0].clientY, 0).applyMatrix4(matrix);
-      console.log(p, camera)
+      // const matrix = new THREE.Matrix4().makeRotationFromQuaternion(
+      //   new THREE.Quaternion().setFromUnitVectors(
+      //     new THREE.Vector3(0, 0, 1), // 初始向量
+      //     new THREE.Vector3(0, 1, 0)
+      //   )
+      // );
+      // console.log(matrix)
+      // const p = new THREE.Vector3( e.touches[0].clientX, e.touches[0].clientY, 0).applyMatrix4(matrix);
+      // console.log(p, camera)
     });
 
     // array of functions for the rendering loop
@@ -124,8 +124,13 @@
       mesh.rotation.x += Math.PI * delta;
     });
 
+    const div = document.createElement("div");
+    div.style.marginTop = "120px";
+
     // render the scene
     onRenderFcts.push(function () {
+      div.innerHTML = JSON.stringify(camera.projectionMatrix.elements);
+      document.body.appendChild(div);
       renderer.render(scene, camera);
     });
 
