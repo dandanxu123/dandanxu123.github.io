@@ -25,6 +25,9 @@
         resizeEvent.initUIEvent("resize", true, false, window, 0);
         window.dispatchEvent(resizeEvent);
       }, 3000);
+
+      var sceneEl = document.querySelector('a-scene');
+      console.log(sceneEl)
     };
   </script>
 </head>
