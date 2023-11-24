@@ -50,7 +50,13 @@
       const material2 = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
       const cube2 = new THREE.Mesh(geometry2, material2);
       // console.log(points)
-      cube2.position.set(0, 0, 1);
+      cube2.position.set(1, 0, 0);
+
+      const geometry3 = new THREE.BoxGeometry(0.1, 0.1, 0.1);
+      const material3 = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+      const cube3 = new THREE.Mesh(geometry3, material3);
+      // console.log(points)
+      cube3.position.set(1, 0, 0);
 
       // const div = document.createElement("div");
       // div.style.marginBottom = "20px";
@@ -58,12 +64,7 @@
       // document.body.appendChild(div);
 
       // console.log(camera)
-      console.log(arToolkitContext.arController.getCameraMatrix(), 222)
-
-      const div1 = document.createElement("div");
-      div1.style.marginBottom = "20px";
-      div1.innerHTML = JSON.stringify(arToolkitContext.arController.getCameraMatrix().elements)
-      document.body.appendChild(div1);
+     
 
       // const div2 = document.createElement("div");
       // div2.style.marginBottom = "20px";
@@ -73,6 +74,8 @@
       // console.log(arToolkitContext.getProjectionMatrix().invert(), 222)
 
       markerRoot.add(cube);
+      markerRoot.add(cube2);
+      markerRoot.add(cube3);
       markerRoot.visible = true;
       let ray = new THREE.Raycaster();
       ray.set(points, new THREE.Vector3(0, 1, 0));
