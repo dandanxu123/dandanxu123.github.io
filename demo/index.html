@@ -117,7 +117,7 @@
     scene.add(mesh);
 
     // 辅助线
-    const axesHelper = new THREE.AxesHelper(1);
+    const axesHelper = new THREE.AxesHelper(1.2);
     scene.add(axesHelper);
 
     onRenderFcts.push(function (delta) {
@@ -126,11 +126,12 @@
 
     const div = document.createElement("div");
     div.style.marginTop = "120px";
-
+    let i = 0;
     // render the scene
     onRenderFcts.push(function () {
-      div.innerHTML = JSON.stringify(camera.projectionMatrix.elements);
+      div.innerHTML = JSON.stringify(camera.projectionMatrix.elements + i);
       document.body.appendChild(div);
+      i++
       renderer.render(scene, camera);
     });
 
