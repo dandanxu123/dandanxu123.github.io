@@ -103,7 +103,7 @@
     var geometry = new THREE.CubeGeometry(1, 1, 1);
     var material = new THREE.MeshNormalMaterial({
       transparent: true,
-      opacity: 0.5,
+      opacity: 1,
       side: THREE.DoubleSide,
     });
     var mesh = new THREE.Mesh(geometry, material);
@@ -117,7 +117,7 @@
     scene.add(mesh);
 
     // 辅助线
-    const axesHelper = new THREE.AxesHelper(0.5);
+    const axesHelper = new THREE.AxesHelper(0.7);
     scene.add(axesHelper);
 
     onRenderFcts.push(function (delta) {
