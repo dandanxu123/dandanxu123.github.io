@@ -135,6 +135,7 @@
       var deltaMsec = Math.min(200, nowMsec - lastTimeMsec);
       lastTimeMsec = nowMsec;
       // call each update function
+      console.log(onRenderFcts)
       onRenderFcts.forEach(function (onRenderFct) {
         onRenderFct(deltaMsec / 1000, nowMsec / 1000);
       });
