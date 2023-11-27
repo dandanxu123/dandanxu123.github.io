@@ -137,7 +137,7 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 	*/
 	ARController.prototype.process = function(image) {
 		this.detectMarker(image);
-		console.log(8888)
+		alert(3)
 		var markerNum = this.getMarkerNum();
 		var k,o;
 		for (k in this.patternMarkers) {
@@ -1843,7 +1843,7 @@ THREEx.ArMarkerCloak = function(videoTexture){
         //////////////////////////////////////////////////////////////////////////////
 
 	this.update = function(modelViewMatrix, cameraProjectionMatrix){
-		console.log(22222)
+		alert(4)
                 updateOrtho(modelViewMatrix, cameraProjectionMatrix)
 
                 if( updateInShaderEnabled === false ){
@@ -2619,7 +2619,7 @@ ARjs.Context.prototype._initArtoolkit = function (onCompleted) {
     this._artoolkitProjectionAxisTransformMatrix = new THREE.Matrix4()
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationY(Math.PI))
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationZ(Math.PI))
-	console.log(this._artoolkitProjectionAxisTransformMatrix, 999)
+	alert(5)
     // get cameraParameters
     var cameraParameters = new ARCameraParam(_this.parameters.cameraParametersUrl, function () {
         // init controller
@@ -2877,7 +2877,6 @@ var THREEx = THREEx || {}
 
 ARjs.Source = THREEx.ArToolkitSource = function (parameters) {
     var _this = this
-	console.log(1111, parameters)
     this.ready = false
     this.domElement = null
 
@@ -3323,7 +3322,6 @@ THREEx.ArVideoInWebgl = function(videoTexture){
 	// TODO extract the fov from the projectionMatrix
 	// camera.fov = 43.1
 	this.update = function(camera){
-		console.log(1111)
 		camera.updateMatrixWorld(true)
 		
 		// get seethruPlane position
@@ -3647,7 +3645,7 @@ ARjs.Anchor = function(arSession, markerParameters){
 	//		Code Separator
 	//////////////////////////////////////////////////////////////////////////////
 	this.update = function(){
-		console.log(22222)
+		alert(1)
 		// update _this.object3d.visible
 		_this.object3d.visible = _this.object3d.parent.visible
 
@@ -4050,7 +4048,7 @@ ARjs.Session = function(parameters){
 	//////////////////////////////////////////////////////////////////////////////
 	// update artoolkit on every frame
 	this.update = function(){
-		console.log(22222)
+		alert(2)
 		if( arSource.ready === false )	return
 
 		arContext.update( arSource.domElement )

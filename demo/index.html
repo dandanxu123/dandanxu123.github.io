@@ -77,7 +77,6 @@
     // initialize it
     arToolkitContext.init(function onCompleted() {
       // copy projection matrix to camera
-      console.log(arToolkitContext.getProjectionMatrix(), 222)
       camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
     });
 
