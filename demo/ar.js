@@ -43,6 +43,16 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 		@param {number} height The height of the images to process.
 		@param {ARCameraParam | string} camera The ARCameraParam to use for image processing. If this is a string, the ARController treats it as an URL and tries to load it as a ARCameraParam definition file, calling ARController#onload on success. 
 	*/
+
+	const div = document.createElement("div");
+    div.style.marginTop = "120px";
+	const div1 = document.createElement("div");
+    div1.style.marginTop = "30px";
+    const div2 = document.createElement("div");
+    div2.style.marginTop = "30px";
+    document.body.appendChild(div);
+	document.body.appendChild(div1);
+    document.body.appendChild(div2);
 	var ARController = function(width, height, camera) {
 		var id;
 		var w = width, h = height;
@@ -137,7 +147,7 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 	*/
 	ARController.prototype.process = function(image) {
 		this.detectMarker(image);
-
+		div1.innerHTML = 8888;
 		var markerNum = this.getMarkerNum();
 		var k,o;
 		for (k in this.patternMarkers) {
@@ -1843,7 +1853,7 @@ THREEx.ArMarkerCloak = function(videoTexture){
         //////////////////////////////////////////////////////////////////////////////
 
 	this.update = function(modelViewMatrix, cameraProjectionMatrix){
-		console.log(22222)
+		div.innerHTML = 22221;
                 updateOrtho(modelViewMatrix, cameraProjectionMatrix)
 
                 if( updateInShaderEnabled === false ){
@@ -2619,7 +2629,7 @@ ARjs.Context.prototype._initArtoolkit = function (onCompleted) {
     this._artoolkitProjectionAxisTransformMatrix = new THREE.Matrix4()
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationY(Math.PI))
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationZ(Math.PI))
-	console.log(this._artoolkitProjectionAxisTransformMatrix, 999)
+	div2.innerHTML = 9999;
     // get cameraParameters
     var cameraParameters = new ARCameraParam(_this.parameters.cameraParametersUrl, function () {
         // init controller
@@ -3647,7 +3657,7 @@ ARjs.Anchor = function(arSession, markerParameters){
 	//		Code Separator
 	//////////////////////////////////////////////////////////////////////////////
 	this.update = function(){
-		console.log(22222)
+		div.innerHTML = 22222;
 		// update _this.object3d.visible
 		_this.object3d.visible = _this.object3d.parent.visible
 
@@ -4050,7 +4060,7 @@ ARjs.Session = function(parameters){
 	//////////////////////////////////////////////////////////////////////////////
 	// update artoolkit on every frame
 	this.update = function(){
-		console.log(22222)
+		div.innerHTML = 22223;
 		if( arSource.ready === false )	return
 
 		arContext.update( arSource.domElement )
