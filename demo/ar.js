@@ -137,7 +137,6 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 	*/
 	ARController.prototype.process = function(image) {
 		this.detectMarker(image);
-		alert(3)
 		var markerNum = this.getMarkerNum();
 		var k,o;
 		for (k in this.patternMarkers) {
@@ -180,7 +179,6 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 				this.getTransMatSquare(i, visible.markerWidth, visible.matrix);
 			}
 // this.getTransMatSquare(i, visible.markerWidth, visible.matrix);
-
 			visible.inCurrent = true;
 			this.transMatToGLMat(visible.matrix, this.transform_mat);
 			this.dispatchEvent({
@@ -193,6 +191,10 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 					matrix: this.transform_mat
 				}
 			});
+		}
+		if(new Date().getTime() % 500 == 0) {
+			alert(JSON.stringify(this.transform_mat))
+			alert(JSON.stringify(visible.matrix))
 		}
 
 		var multiMarkerCount = this.getMultiMarkerCount();
