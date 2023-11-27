@@ -1967,7 +1967,7 @@ THREEx.ArMarkerCloak.fragmentShader = '\n'+
 var ARjs = ARjs || {}
 var THREEx = THREEx || {}
 
-ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, parameters){
+ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, parameters, ele){
 	var _this = this
 
 	THREEx.ArBaseControls.call(this, object3d)
@@ -2046,7 +2046,7 @@ ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, para
 	context.addMarker(this)
 
 	if( _this.context.parameters.trackingBackend === 'artoolkit' ){
-		this._initArtoolkit()
+		this._initArtoolkit(ele)
 	}else console.assert(false)
 }
 
@@ -2068,7 +2068,7 @@ ARjs.MarkerControls.prototype.dispose = function(){
  * When you actually got a new modelViewMatrix, you need to perfom a whole bunch
  * of things. it is done here.
  */
-ARjs.MarkerControls.prototype.updateWithModelViewMatrix = function(modelViewMatrix){
+ARjs.MarkerControls.prototype.updateWithModelViewMatrix = function(modelViewMatrix, ele){
 	var markerObject3D = this.object3d;
 
 	// mark object as visible
@@ -2131,6 +2131,8 @@ ARjs.MarkerControls.prototype.updateWithModelViewMatrix = function(modelViewMatr
 		}
 	}else if( this.parameters.changeMatrixMode === 'cameraTransformMatrix' ){
 		markerObject3D.matrix.getInverse( modelViewMatrix )
+
+		ele.innerHTML = JSON.stringify(modelViewMatrix.elements)
 	}else {
 		console.assert(false)
 	}
@@ -2171,7 +2173,7 @@ ARjs.MarkerControls.prototype.name = function(){
 //////////////////////////////////////////////////////////////////////////////
 //		init for Artoolkit
 //////////////////////////////////////////////////////////////////////////////
-ARjs.MarkerControls.prototype._initArtoolkit = function(){
+ARjs.MarkerControls.prototype._initArtoolkit = function(ele){
 	var _this = this
 
 	var artoolkitMarkerId = null
@@ -2231,7 +2233,7 @@ ARjs.MarkerControls.prototype._initArtoolkit = function(){
 		if( event.data.type === artoolkit.BARCODE_MARKER && event.data.marker.cfMatrix < _this.parameters.minConfidence )	return
 
 		var modelViewMatrix = new THREE.Matrix4().fromArray(event.data.matrix)
-		_this.updateWithModelViewMatrix(modelViewMatrix)
+		_this.updateWithModelViewMatrix(modelViewMatrix, ele)
 	}
 }
 var THREEx = THREEx || {}
