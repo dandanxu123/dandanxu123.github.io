@@ -2619,7 +2619,7 @@ ARjs.Context.prototype._initArtoolkit = function (onCompleted) {
     this._artoolkitProjectionAxisTransformMatrix = new THREE.Matrix4()
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationY(Math.PI))
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationZ(Math.PI))
-
+	console.log(this._artoolkitProjectionAxisTransformMatrix, 999)
     // get cameraParameters
     var cameraParameters = new ARCameraParam(_this.parameters.cameraParametersUrl, function () {
         // init controller
