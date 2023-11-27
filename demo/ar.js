@@ -1967,7 +1967,7 @@ THREEx.ArMarkerCloak.fragmentShader = '\n'+
 var ARjs = ARjs || {}
 var THREEx = THREEx || {}
 
-ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, parameters, ele){
+ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, parameters, ele, ele2){
 	var _this = this
 
 	THREEx.ArBaseControls.call(this, object3d)
@@ -2046,7 +2046,7 @@ ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, para
 	context.addMarker(this)
 
 	if( _this.context.parameters.trackingBackend === 'artoolkit' ){
-		this._initArtoolkit(ele)
+		this._initArtoolkit(ele, ele2)
 	}else console.assert(false)
 }
 
@@ -2068,7 +2068,7 @@ ARjs.MarkerControls.prototype.dispose = function(){
  * When you actually got a new modelViewMatrix, you need to perfom a whole bunch
  * of things. it is done here.
  */
-ARjs.MarkerControls.prototype.updateWithModelViewMatrix = function(modelViewMatrix, ele){
+ARjs.MarkerControls.prototype.updateWithModelViewMatrix = function(modelViewMatrix, ele, ele2){
 	var markerObject3D = this.object3d;
 
 	// mark object as visible
@@ -2139,7 +2139,7 @@ ARjs.MarkerControls.prototype.updateWithModelViewMatrix = function(modelViewMatr
 
 	// decompose - the matrix into .position, .quaternion, .scale
 	markerObject3D.matrix.decompose(markerObject3D.position, markerObject3D.quaternion, markerObject3D.scale)
-
+	ele2.innerHTML = JSON.stringify(markerObject3D.scale)
 	// dispatchEvent
 	this.dispatchEvent( { type: 'markerFound' } );
 
@@ -2173,7 +2173,7 @@ ARjs.MarkerControls.prototype.name = function(){
 //////////////////////////////////////////////////////////////////////////////
 //		init for Artoolkit
 //////////////////////////////////////////////////////////////////////////////
-ARjs.MarkerControls.prototype._initArtoolkit = function(ele){
+ARjs.MarkerControls.prototype._initArtoolkit = function(ele, ele2){
 	var _this = this
 
 	var artoolkitMarkerId = null
@@ -2233,7 +2233,7 @@ ARjs.MarkerControls.prototype._initArtoolkit = function(ele){
 		if( event.data.type === artoolkit.BARCODE_MARKER && event.data.marker.cfMatrix < _this.parameters.minConfidence )	return
 
 		var modelViewMatrix = new THREE.Matrix4().fromArray(event.data.matrix)
-		_this.updateWithModelViewMatrix(modelViewMatrix, ele)
+		_this.updateWithModelViewMatrix(modelViewMatrix, ele, ele2)
 	}
 }
 var THREEx = THREEx || {}
