@@ -238,7 +238,7 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 				}
 			}
 		}
-		ele1.innerHTML = JSON.stringify(this.transform_mat)
+		// ele1.innerHTML = JSON.stringify(this.transform_mat)
 		if (this._bwpointer) {
 			this.debugDraw();
 		}
