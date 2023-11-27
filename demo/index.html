@@ -90,7 +90,7 @@
     // update artoolkit on every frame
     onRenderFcts.push(function () {
       if (arToolkitSource.ready === false) return;
-
+      console.log(arToolkitContext.transform_mat)
       arToolkitContext.update(arToolkitSource.domElement, div, div2);
 
       // update scene.visible if the marker is seen
@@ -128,7 +128,7 @@
     scene.add(axesHelper);
 
     onRenderFcts.push(function (delta) {
-      // mesh.rotation.x += Math.PI * delta;
+      mesh.rotation.x += Math.PI * delta;
     });
 
     // render the scene
