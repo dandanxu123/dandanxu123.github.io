@@ -2877,7 +2877,7 @@ var THREEx = THREEx || {}
 
 ARjs.Source = THREEx.ArToolkitSource = function (parameters) {
     var _this = this
-
+	console.log(1111)
     this.ready = false
     this.domElement = null
 
