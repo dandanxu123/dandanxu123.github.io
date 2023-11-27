@@ -1843,6 +1843,7 @@ THREEx.ArMarkerCloak = function(videoTexture){
         //////////////////////////////////////////////////////////////////////////////
 
 	this.update = function(modelViewMatrix, cameraProjectionMatrix){
+		console.log(22222)
                 updateOrtho(modelViewMatrix, cameraProjectionMatrix)
 
                 if( updateInShaderEnabled === false ){
@@ -3322,6 +3323,7 @@ THREEx.ArVideoInWebgl = function(videoTexture){
 	// TODO extract the fov from the projectionMatrix
 	// camera.fov = 43.1
 	this.update = function(camera){
+		console.log(1111)
 		camera.updateMatrixWorld(true)
 		
 		// get seethruPlane position
@@ -3645,6 +3647,7 @@ ARjs.Anchor = function(arSession, markerParameters){
 	//		Code Separator
 	//////////////////////////////////////////////////////////////////////////////
 	this.update = function(){
+		console.log(22222)
 		// update _this.object3d.visible
 		_this.object3d.visible = _this.object3d.parent.visible
 
@@ -4047,6 +4050,7 @@ ARjs.Session = function(parameters){
 	//////////////////////////////////////////////////////////////////////////////
 	// update artoolkit on every frame
 	this.update = function(){
+		console.log(22222)
 		if( arSource.ready === false )	return
 
 		arContext.update( arSource.domElement )
