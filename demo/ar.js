@@ -135,7 +135,7 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 
 		@param {ImageElement | VideoElement} image The image to process [optional]. 
 	*/
-	ARController.prototype.process = function(image) {
+	ARController.prototype.process = function(image, ele1, ele2) {
 		this.detectMarker(image);
 		var markerNum = this.getMarkerNum();
 		var k,o;
@@ -192,10 +192,12 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 				}
 			});
 		}
-		if(new Date().getTime() % 500 == 0) {
-			alert(JSON.stringify(this.transform_mat))
-			alert(JSON.stringify(visible.matrix))
-		}
+		// if(new Date().getTime() % 500 == 0) {
+		// 	alert(JSON.stringify(this.transform_mat))
+		// 	alert(JSON.stringify(visible.matrix))
+		// }
+		ele1.innerHTML = JSON.stringify(this.transform_mat)
+		ele2.innerHTML = JSON.stringify(visible.matrix)
 
 		var multiMarkerCount = this.getMultiMarkerCount();
 		for (var i=0; i<multiMarkerCount; i++) {
@@ -2540,7 +2542,7 @@ ARjs.Context.prototype.init = function (onCompleted) {
 ////////////////////////////////////////////////////////////////////////////////
 //          update function
 ////////////////////////////////////////////////////////////////////////////////
-ARjs.Context.prototype.update = function (srcElement) {
+ARjs.Context.prototype.update = function (srcElement, ele1, ele2) {
 
     // be sure arController is fully initialized
     if (this.parameters.trackingBackend === 'artoolkit' && this.arController === null) return false;
@@ -2564,7 +2566,7 @@ ARjs.Context.prototype.update = function (srcElement) {
 
     // process this frame
     if (this.parameters.trackingBackend === 'artoolkit') {
-        this._updateArtoolkit(srcElement);
+        this._updateArtoolkit(srcElement, ele1, ele2);
     }  else {
         console.assert(false);
     }
@@ -2621,7 +2623,7 @@ ARjs.Context.prototype._initArtoolkit = function (onCompleted) {
     this._artoolkitProjectionAxisTransformMatrix = new THREE.Matrix4()
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationY(Math.PI))
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationZ(Math.PI))
-	alert(5)
+	alert(JSON.stringify(this._artoolkitProjectionAxisTransformMatrix) + '===001')
     // get cameraParameters
     var cameraParameters = new ARCameraParam(_this.parameters.cameraParametersUrl, function () {
         // init controller
@@ -2706,8 +2708,8 @@ ARjs.Context.prototype.getProjectionMatrix = function (srcElement) {
     return projectionMatrix
 }
 
-ARjs.Context.prototype._updateArtoolkit = function (srcElement) {
-    this.arController.process(srcElement)
+ARjs.Context.prototype._updateArtoolkit = function (srcElement, ele1, ele2) {
+    this.arController.process(srcElement, ele1, ele2)
 }
 var ARjs = ARjs || {}
 var THREEx = THREEx || {}
