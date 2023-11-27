@@ -92,7 +92,7 @@
       if (arToolkitSource.ready === false) return;
       // console.log(arToolkitContext.transform_mat)
       arToolkitContext.update(arToolkitSource.domElement, div, div2);
-      ele1.innerHTML = JSON.stringify(arToolkitContext.transform_mat)
+      div.innerHTML = JSON.stringify(arToolkitContext.transform_mat)
       // update scene.visible if the marker is seen
       scene.visible = camera.visible;
     });
