@@ -88,7 +88,7 @@
 
     // Create a camera
     // var camera = new THREE.Camera();
-    const camera = new THREE.PerspectiveCamera(60, 1, 1, 1000);
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
     scene.add(camera);
 
     var arToolkitSource = new THREEx.ArToolkitSource({
