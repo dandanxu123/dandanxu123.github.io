@@ -39,6 +39,7 @@
       const cube = new THREE.Mesh(geometry, material);
       // console.log(points)
       cube.position.set(points.x, 1, points.z);
+      scene.add(cube)
       // const matrix = new THREE.Matrix4().makeRotationFromQuaternion(
       //   new THREE.Quaternion().setFromUnitVectors(
       //     new THREE.Vector3(0, 0, 1), // 初始向量
