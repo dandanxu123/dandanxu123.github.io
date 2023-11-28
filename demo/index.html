@@ -105,7 +105,9 @@
       patternUrl: THREEx.ArToolkitContext.baseURL + "jgw.patt",
       changeMatrixMode: "cameraTransformMatrix",
     }, (m) => {
-      console.log(m)
+      const matrix = new THREE.Matrix4()
+      matrix.getInverse(m.projectionMatrix)
+      console.log(matrix, m.projectionMatrix, m)
     });
     // as we do changeMatrixMode: 'cameraTransformMatrix', start with invisible scene
     scene.visible = false;
