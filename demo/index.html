@@ -31,8 +31,7 @@
       camera.projectionMatrixInverse.copy(m)
       const points = screenToWorldVector(
         e.touches[0].clientX,
-        e.touches[0].clientY,
-        m, matrixWorld
+        e.touches[0].clientY
       );
 
       console.log(points, camera)
