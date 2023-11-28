@@ -120,6 +120,7 @@
       div.innerHTML = JSON.stringify(arToolkitContext.transform_mat)
       // update scene.visible if the marker is seen
       scene.visible = camera.visible;
+      console.log(arToolkitSource.domElement, 999)
     });
 
     // init controls for camera
