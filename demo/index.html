@@ -37,8 +37,9 @@
       // console.log(arToolkitContext, '===Context')
       // console.log(arToolkitSource, '===Source')
       // console.log(markerControls, '===Controls')
-      // markerControls.object3d.updateProjectionMatrix();
       console.log(markerControls.object3d, markerControls.object3d.updateProjectionMatrix)
+      markerControls.object3d.updateProjectionMatrix();
+      
       // const geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
       // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
       // const cube = new THREE.Mesh(geometry, material);
@@ -82,7 +83,7 @@
     var scene = new THREE.Scene();
 
     // Create a camera
-    var camera = new THREE.Camera();
+    var camera = new THREE.PerspectiveCamera( 45, width / height, 1, 1000 );
     scene.add(camera);
 
     var arToolkitSource = new THREEx.ArToolkitSource({
