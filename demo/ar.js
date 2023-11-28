@@ -193,6 +193,7 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 			});
 		}
 		var multiMarkerCount = this.getMultiMarkerCount();
+		console.log(arToolkitContext.getProjectionMatrix())
 		for (var i=0; i<multiMarkerCount; i++) {
 			var subMarkerCount = this.getMultiMarkerPatternCount(i);
 			var visible = false;
