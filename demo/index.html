@@ -35,7 +35,7 @@
         m, matrixWorld
       );
 
-      console.log(points, matrixWorld)
+      console.log(camera)
       // const matrix = new THREE.Matrix4().makeRotationFromQuaternion(
       //   new THREE.Quaternion().setFromUnitVectors(
       //     new THREE.Vector3(0, 0, 1), // 初始向量
@@ -129,8 +129,8 @@
       patternUrl: THREEx.ArToolkitContext.baseURL + "jgw.patt",
       changeMatrixMode: "cameraTransformMatrix",
     }, (m) => {
-      matrixWorld.copy(m.matrixWorld)
-      console.log(m, camera)
+      // matrixWorld.copy(m.matrixWorld)
+      // console.log(m, camera)
     });
     // as we do changeMatrixMode: 'cameraTransformMatrix', start with invisible scene
     scene.visible = false;
