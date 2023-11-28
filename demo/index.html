@@ -13,7 +13,7 @@
 
 <body style="margin: 0px; overflow: hidden; font-family: Monospace">
   <script>
-    const matrixWorld = new THREE.Matrix4();
+     const matrixWorld = new THREE.Matrix4()
     // init renderer
     var renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -29,29 +29,28 @@
       // const m = new THREE.Matrix4()
       // m.getInverse(camera.projectionMatrix)
       // camera.projectionMatrixInverse.copy(m)
-
+      // const points = screenToWorldVector(
+      //   e.touches[0].clientX,
+      //   e.touches[0].clientY
+      // );
       // console.log(camera, '===camera')
       // console.log(arToolkitContext, '===Context')
       // console.log(arToolkitSource, '===Source')
       // console.log(markerControls, '===Controls')
-      // console.log(markerControls.object3d, markerControls.object3d.updateProjectionMatrix)
+      console.log(markerControls.object3d, markerControls.object3d.updateProjectionMatrix)
       markerControls.object3d.updateProjectionMatrix();
-      const points = screenToWorldVector(
-        e.touches[0].clientX,
-        e.touches[0].clientY
-      );
-      const geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-      const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-      const cube = new THREE.Mesh(geometry, material);
+      
+      // const geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
+      // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+      // const cube = new THREE.Mesh(geometry, material);
 
       // const geometry2 = new THREE.BoxGeometry(0.1, 0.1, 0.1);
       // const material2 = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
       // const cube2 = new THREE.Mesh(geometry2, material2);
       // // console.log(points)
       // cube.position.set(points.x, 1, points.z);
-      cube.position.set(points.x, points.y, points.z);
-      scene.add(cube);
-      console.log(points);
+      // cube2.position.set(points.x, points.y, points.z);
+      // scene.add(cube)
       // scene.add(cube2)
       // const matrix = new THREE.Matrix4().makeRotationFromQuaternion(
       //   new THREE.Quaternion().setFromUnitVectors(
@@ -84,12 +83,7 @@
     var scene = new THREE.Scene();
 
     // Create a camera
-    var camera = new THREE.PerspectiveCamera(
-      45,
-      window.innerWidth / window.innerHeight,
-      1,
-      1000
-    );
+    var camera = new THREE.Camera();
     scene.add(camera);
 
     var arToolkitSource = new THREEx.ArToolkitSource({
@@ -133,6 +127,8 @@
       camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
     });
 
+    
+
     // update artoolkit on every frame
     onRenderFcts.push(function () {
       if (arToolkitSource.ready === false) return;
@@ -142,19 +138,14 @@
     });
 
     // init controls for camera
-    var markerControls = new THREEx.ArMarkerControls(
-      arToolkitContext,
-      camera,
-      {
-        type: "pattern",
-        patternUrl: THREEx.ArToolkitContext.baseURL + "jgw.patt",
-        changeMatrixMode: "cameraTransformMatrix",
-      },
-      (m) => {
-        // matrixWorld.copy(m.matrixWorld)
-        // console.log(m, camera)
-      }
-    );
+    var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
+      type: "pattern",
+      patternUrl: THREEx.ArToolkitContext.baseURL + "jgw.patt",
+      changeMatrixMode: "cameraTransformMatrix",
+    }, (m) => {
+      // matrixWorld.copy(m.matrixWorld)
+      // console.log(m, camera)
+    });
     // as we do changeMatrixMode: 'cameraTransformMatrix', start with invisible scene
     scene.visible = false;
 
@@ -198,7 +189,7 @@
       var deltaMsec = Math.min(200, nowMsec - lastTimeMsec);
       lastTimeMsec = nowMsec;
       // call each update function
-
+      
       onRenderFcts.forEach(function (onRenderFct) {
         // console.log(onRenderFcts)
         onRenderFct(deltaMsec / 1000, nowMsec / 1000);
