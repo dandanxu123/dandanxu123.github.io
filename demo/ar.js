@@ -193,7 +193,6 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 			});
 		}
 		var multiMarkerCount = this.getMultiMarkerCount();
-		console.log(arToolkitContext.getProjectionMatrix())
 		for (var i=0; i<multiMarkerCount; i++) {
 			var subMarkerCount = this.getMultiMarkerPatternCount(i);
 			var visible = false;
@@ -2617,7 +2616,6 @@ ARjs.Context.prototype._initArtoolkit = function (onCompleted) {
     this._artoolkitProjectionAxisTransformMatrix = new THREE.Matrix4()
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationY(Math.PI))
     this._artoolkitProjectionAxisTransformMatrix.multiply(new THREE.Matrix4().makeRotationZ(Math.PI))
-	alert(JSON.stringify(this._artoolkitProjectionAxisTransformMatrix) + '===001')
     // get cameraParameters
     var cameraParameters = new ARCameraParam(_this.parameters.cameraParametersUrl, function () {
         // init controller
