@@ -104,7 +104,9 @@
       type: "pattern",
       patternUrl: THREEx.ArToolkitContext.baseURL + "jgw.patt",
       changeMatrixMode: "cameraTransformMatrix",
-    }, div, div2);
+    }, (m) => {
+      console.log(m)
+    });
     // as we do changeMatrixMode: 'cameraTransformMatrix', start with invisible scene
     scene.visible = false;
 
