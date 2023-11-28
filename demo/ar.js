@@ -198,7 +198,7 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 		// }
 		
 		// ele2.innerHTML = JSON.stringify(visible.matrix)
-		console.log(markerInfo, visible)
+		console.log(markerInfo, visible, this.marker_transform_mat, this.transform_mat)
 		var multiMarkerCount = this.getMultiMarkerCount();
 		for (var i=0; i<multiMarkerCount; i++) {
 			var subMarkerCount = this.getMultiMarkerPatternCount(i);
