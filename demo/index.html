@@ -28,7 +28,7 @@
     renderer.domElement.addEventListener("touchstart", (e) => {
       const m = new THREE.Matrix4()
       m.getInverse(camera.projectionMatrix)
-
+      camera.projectionMatrixInverse.copy(m)
       const points = screenToWorldVector(
         e.touches[0].clientX,
         e.touches[0].clientY,
