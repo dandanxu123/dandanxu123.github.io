@@ -29,7 +29,13 @@
       const m = new THREE.Matrix4()
       m.getInverse(camera.projectionMatrix)
 
-      console.log(m, matrixWorld)
+      const points = screenToWorldVector(
+        e.touches[0].clientX,
+        e.touches[0].clientY,
+        m, matrixWorld
+      );
+
+      console.log(points)
       // const matrix = new THREE.Matrix4().makeRotationFromQuaternion(
       //   new THREE.Quaternion().setFromUnitVectors(
       //     new THREE.Vector3(0, 0, 1), // 初始向量
@@ -40,6 +46,19 @@
       // const p = new THREE.Vector3( e.touches[0].clientX, e.touches[0].clientY, 0).applyMatrix4(matrix);
       // console.log(p, camera)
     });
+
+    function screenToWorldVector(evX, evY, p, w) {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      // console.log(camera)
+      const x = evX;
+      const y = evY;
+      const x1 = (x / width) * 2 - 1;
+      const y1 = -(y / height) * 2 + 1;
+      const stdVector = new THREE.Vector3(x1, y1, 0.5);
+      const worldVector = stdVector.unproject({projectionMatrixInverse: p, matrixWorld: w});
+      return worldVector;
+    }
 
     // array of functions for the rendering loop
     var onRenderFcts = [];
