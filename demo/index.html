@@ -13,6 +13,7 @@
 
 <body style="margin: 0px; overflow: hidden; font-family: Monospace">
   <script>
+     const matrixWorld = new THREE.Matrix4()
     // init renderer
     var renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -25,6 +26,10 @@
     renderer.domElement.style.left = "0px";
     document.body.appendChild(renderer.domElement);
     renderer.domElement.addEventListener("touchstart", (e) => {
+      const m = new THREE.Matrix4()
+      m.getInverse(camera.projectionMatrix)
+
+      console.log(m, matrixWorld)
       // const matrix = new THREE.Matrix4().makeRotationFromQuaternion(
       //   new THREE.Quaternion().setFromUnitVectors(
       //     new THREE.Vector3(0, 0, 1), // 初始向量
@@ -105,9 +110,7 @@
       patternUrl: THREEx.ArToolkitContext.baseURL + "jgw.patt",
       changeMatrixMode: "cameraTransformMatrix",
     }, (m) => {
-      const matrix = new THREE.Matrix4()
-      matrix.getInverse(m.projectionMatrix)
-      console.log(matrix, m.projectionMatrix, m)
+      matrixWorld.copy(m.matrixWorld)
     });
     // as we do changeMatrixMode: 'cameraTransformMatrix', start with invisible scene
     scene.visible = false;
