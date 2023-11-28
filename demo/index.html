@@ -26,15 +26,15 @@
     renderer.domElement.style.left = "0px";
     document.body.appendChild(renderer.domElement);
     renderer.domElement.addEventListener("touchstart", (e) => {
-      const m = new THREE.Matrix4()
-      m.getInverse(camera.projectionMatrix)
-      camera.projectionMatrixInverse.copy(m)
-      const points = screenToWorldVector(
-        e.touches[0].clientX,
-        e.touches[0].clientY
-      );
+      // const m = new THREE.Matrix4()
+      // m.getInverse(camera.projectionMatrix)
+      // camera.projectionMatrixInverse.copy(m)
+      // const points = screenToWorldVector(
+      //   e.touches[0].clientX,
+      //   e.touches[0].clientY
+      // );
 
-      console.log(points, camera)
+      console.log(scene)
       // const matrix = new THREE.Matrix4().makeRotationFromQuaternion(
       //   new THREE.Quaternion().setFromUnitVectors(
       //     new THREE.Vector3(0, 0, 1), // 初始向量
@@ -115,12 +115,9 @@
     // update artoolkit on every frame
     onRenderFcts.push(function () {
       if (arToolkitSource.ready === false) return;
-      // console.log(arToolkitContext.transform_mat)
       arToolkitContext.update(arToolkitSource.domElement, div, div2);
-      div.innerHTML = JSON.stringify(arToolkitContext.transform_mat)
       // update scene.visible if the marker is seen
       scene.visible = camera.visible;
-      console.log(arToolkitSource.domElement, 999)
     });
 
     // init controls for camera
