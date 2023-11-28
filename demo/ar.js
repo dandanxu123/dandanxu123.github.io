@@ -2140,6 +2140,8 @@ ARjs.MarkerControls.prototype.updateWithModelViewMatrix = function(modelViewMatr
 	// decompose - the matrix into .position, .quaternion, .scale
 	markerObject3D.matrix.decompose(markerObject3D.position, markerObject3D.quaternion, markerObject3D.scale)
 	ele2.innerHTML = JSON.stringify(markerObject3D.scale)
+	console.log(markerObject3D, 999)
+	console.log(modelViewMatrix, 666)
 	// dispatchEvent
 	this.dispatchEvent( { type: 'markerFound' } );
 
