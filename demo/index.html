@@ -47,6 +47,7 @@
       ray.setFromCamera(pointer, camera);
       const r1 = ray.intersectObjects(groundMesh.children, true);
       console.log(r1)
+      alert(r1.length)
     });
 
     function screenToWorldVector(evX, evY, p, w) {
