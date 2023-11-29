@@ -26,45 +26,27 @@
     renderer.domElement.style.left = "0px";
     document.body.appendChild(renderer.domElement);
     renderer.domElement.addEventListener("touchstart", (e) => {
-      // const m = new THREE.Matrix4()
-      // m.getInverse(camera.projectionMatrix)
-      // camera.projectionMatrixInverse.copy(m)
+      // 识别空间点
+      // markerControls.object3d.updateProjectionMatrix();
+      // camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
+      // const geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
+      // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+      // const cube = new THREE.Mesh(geometry, material);
       // const points = screenToWorldVector(
       //   e.touches[0].clientX,
       //   e.touches[0].clientY
       // );
-      // console.log(camera, '===camera')
-      // console.log(arToolkitContext, '===Context')
-      // console.log(arToolkitSource, '===Source')
-      // console.log(markerControls, '===Controls')
-      // console.log(markerControls.object3d, markerControls.object3d.updateProjectionMatrix)
-      markerControls.object3d.updateProjectionMatrix();
-      camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
-      const geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-      const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-      const cube = new THREE.Mesh(geometry, material);
-      const points = screenToWorldVector(
-        e.touches[0].clientX,
-        e.touches[0].clientY
-      );
-      // const geometry2 = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-      // const material2 = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-      // const cube2 = new THREE.Mesh(geometry2, material2);
-      // // console.log(points)
-      // cube.position.set(points.x, 1, points.z);
-      cube.position.set(points.x, points.y, points.z);
-      scene.add(cube);
-      console.log(points)
-      // scene.add(cube2)
-      // const matrix = new THREE.Matrix4().makeRotationFromQuaternion(
-      //   new THREE.Quaternion().setFromUnitVectors(
-      //     new THREE.Vector3(0, 0, 1), // 初始向量
-      //     new THREE.Vector3(0, 1, 0)
-      //   )
-      // );
-      // console.log(matrix)
-      // const p = new THREE.Vector3( e.touches[0].clientX, e.touches[0].clientY, 0).applyMatrix4(matrix);
-      // console.log(p, camera)
+      // cube.position.set(points.x, points.y, points.z);
+      // scene.add(cube);
+      // console.log(points)
+      const pointer = new THREE.Vector2();
+      pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+      pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      let ray = new THREE.Raycaster();
+      ray.setFromCamera(pointer, camera);
+      const r1 = ray.intersectObjects(groundMesh, true);
+      console.log(r1)
     });
 
     function screenToWorldVector(evX, evY, p, w) {
@@ -87,8 +69,10 @@
     var scene = new THREE.Scene();
 
     // Create a camera
-    // var camera = new THREE.Camera();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+    var camera = new THREE.Camera();
+
+    // 透视相机辅助识别空间点
+    // const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
     scene.add(camera);
 
     var arToolkitSource = new THREEx.ArToolkitSource({
@@ -173,6 +157,14 @@
     var mesh = new THREE.Mesh(geometry, material);
     mesh.position.y = 0.5;
     scene.add(mesh);
+
+     ////////////////////////////////////////////////////////////////////////////////
+    var groundMesh = new THREE.Group();
+    scene.add(groundMesh);
+    const geometry1 = new THREE.PlaneGeometry(100, 100, 1);
+    const material1 = new THREE.ShadowMaterial({ opacity: 0.5 });
+    const mesh1 = new THREE.Mesh(geometry1, material1);
+    groundMesh.add(mesh1);
 
     // 辅助线
     const axesHelper = new THREE.AxesHelper(1);
