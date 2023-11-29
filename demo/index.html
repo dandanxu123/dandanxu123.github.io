@@ -164,6 +164,9 @@
     const geometry1 = new THREE.PlaneGeometry(100, 100, 1);
     const material1 = new THREE.ShadowMaterial({ opacity: 0.5 });
     const mesh1 = new THREE.Mesh(geometry1, material1);
+    mesh1.rotateX(-Math.PI / 2)
+    mesh1.position.set(0, 0, 0)
+    mesh1.receiveShadow = true
     groundMesh.add(mesh1);
 
     // 辅助线
