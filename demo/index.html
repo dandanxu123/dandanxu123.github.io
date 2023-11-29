@@ -27,8 +27,8 @@
     document.body.appendChild(renderer.domElement);
     renderer.domElement.addEventListener("touchstart", (e) => {
       // 识别空间点
-      // markerControls.object3d.updateProjectionMatrix();
-      // camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
+      markerControls.object3d.updateProjectionMatrix();
+      camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
       // const geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
       // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
       // const cube = new THREE.Mesh(geometry, material);
@@ -45,7 +45,7 @@
 
       let ray = new THREE.Raycaster();
       ray.setFromCamera(pointer, camera);
-      const r1 = ray.intersectObjects(groundMesh, true);
+      const r1 = ray.intersectObjects(groundMesh.children, true);
       console.log(r1)
     });
 
@@ -69,10 +69,10 @@
     var scene = new THREE.Scene();
 
     // Create a camera
-    var camera = new THREE.Camera();
+    // var camera = new THREE.Camera();
 
     // 透视相机辅助识别空间点
-    // const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
     scene.add(camera);
 
     var arToolkitSource = new THREEx.ArToolkitSource({
