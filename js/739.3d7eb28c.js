@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunknjyjxr_web"]=self["webpackChunknjyjxr_web"]||[]).push([[739],{4739:function(n,e,r){r.r(e),r.d(e,{default:function(){return d}});var u=r(3396);function t(n,e){return(0,u.wg)(),(0,u.iD)("div",null,"移动端正在筹备中。。。")}var a=r(89);const c={},s=(0,a.Z)(c,[["render",t],["__scopeId","data-v-206b1996"]]);var d=s}}]);
+//# sourceMappingURL=739.3d7eb28c.js.map
